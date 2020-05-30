@@ -1,0 +1,20 @@
+Underground light lua hook, version 0.30
+Authors: Started by Mary, continued by JazzMan <jazzman@thepiratebay.army>
+Also on bitbucket: https://bitbucket.org/SoulHipHop/
+Source code: https://bitbucket.org/SoulHipHop/underground-light-lua-hook
+
+Thank you for your interest to this hook. It provides a clear and minimal solution to run Lua scripts in PAYDAY 2/PAYDAY: The Heist. Unlike other hook, made by Harfatus/Olipro or BLT Hook, it weights less, fast and no packing was used at all + It is open source and licensed under GPLv3.
+
+Installation: Place all contents of the hook to the root game folder, including luas. Please, review __require.lua and init.lua for more information.
+Without init.lua configuration nothing gonna work!
+
+What functions were modified/added:
+luaL_newstate(game internal) - Detoured function to execute init.lua at the end of its execution.
+dofile - Improved method, so now it pcall compiled chunk and also may execute filenames without extensions (it will choose between lua and luac)
+pcall - Returned it back. Works almost like original pcall with exception that it doesn't throw error, when you pass no arguments.
+xpcall - Returned it back. Works in a different way: it accepts error_handler_function as 1st argument, function that needs to be executed as the 2nd argument, then other arguments. Unlike the original xpcall in Lua 5.1, you can pass multiple arguments to the function.
+loadfile - Returned it back. Loads file and returns function or nil and error as 2nd argument in case of errors.
+
+Other functions, these were added:
+logme - Logging function. Takes unlimited amount of string arguments. Displays strings on console.
+NewThread - Runs function it was passed as 1st argument in separate thread. Currently unstable

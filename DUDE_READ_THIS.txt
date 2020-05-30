@@ -1,0 +1,32 @@
+Installation:
+	(Replacing Pirate Perfection's hook)
+		-> Remove IPHLPAPI.dll from your root game folder (Usually located here: C:\...\Steam\steamapps\common\PAYDAY 2)
+		-> Copy lightfx.dll and light_hook.ini to root game folder
+		(Optional step, you're probably want to skip it)
+		-> Place __require2.lua in root game folder and open init.lua. Replace all __require.lua strings with __require2.lua.
+	Enjoy your freedom to modify everything :)
+	
+	(Developer's way)
+		-> Copy lightfx.dll, light_hook.ini, init.lua and __require2.lua to game folder
+		-> Study init.lua & __require2.lua comments and start implementing your lua stuff.
+		   You you probably need to add your callbacks to __require table.
+		   Add callbacks to '/lib/entry' if you don' know from what to start. This will call your function after all requires happened.
+		-> Start game and test if your stuff work.
+		
+Compilation (W.I.P.):
+	TO DO: Explain compilation process properly, verify info
+	(Windows)
+	-> Install this: https://cygwin.com/install.html
+	-> During installation, search for mingw packages, install x86 ones.
+	-> Append cygwin/bin folder to %PATH% variable. (Use path cmd or do this in "My Computer" settings)
+	-> Launch compile.bat
+	-> Binary should appear in same folder as you build
+	-> Enjoy your modified DLL if this did work for you
+	If you know better way to do this, you're welcome to contribute.
+	
+	(GNU/Linux)
+	It is going to compile DLL for windows. I suspect you're using wine to play PAYDAY 2.
+	-> Install mingw-w64-gcc (or just mingw, depends on OS)
+	-> Navigate to folder with source code
+	-> i686-w64-mingw32-gcc -shared -c  *.c -s -O2 && i686-w64-mingw32-gcc -shared -o stuff/lightfx.dll  *.o -s -O2 -Wl,--kill-at
+	-> If it didn't work, try looking into i686-w64-mingw32-gcc manual for solution, sorry about that mess.

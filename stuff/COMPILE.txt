@@ -1,0 +1,2 @@
+With proper MinGW installation and path variables setup, compile.bat should work without problems.
+MSVC may probably compile this too, never tested, guess you have to create VS project and try it out.

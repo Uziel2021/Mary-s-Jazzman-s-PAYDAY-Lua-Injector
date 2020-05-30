@@ -1,0 +1,3 @@
+v0.30:
+	- Ported from C++ to C completely.
+	- MinGW support. Unfortunaly file growed extra 7~8kb, but compilation process should be easier. Compilation from Microsoft compiler currently isn't supported.
